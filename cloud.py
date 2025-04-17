@@ -1,7 +1,7 @@
 
 import streamlit as st
 import pandas as pd
-
+import matplotlib.pyplot as plt
 def show_sheets_page():
     st.title("Lecture de Google Sheets dans Streamlit")
 
@@ -17,3 +17,12 @@ def show_sheets_page():
     except Exception as e:
         st.error(f"Erreur lors du chargement des données : {e}")
 show_sheets_page()
+# Création d'un graphique matplotlib
+fig, ax = plt.subplots()
+ax.plot(df['Fonction'], df['Motif de départ'])  
+ax.set_title("motif de depart par fonction")
+ax.set_xlabel("Fonction")
+ax.set_ylabel("motif de depart")
+
+# Affichage du graphique dans Streamlit
+st.pyplot(fig)
