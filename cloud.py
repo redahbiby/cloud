@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def show_sheets_page():
     st.title("Lecture de Google Sheets dans Streamlit")
