@@ -16,4 +16,4 @@ def show_sheets_page():
         st.dataframe(df)
     except Exception as e:
         st.error(f"Erreur lors du chargement des données : {e}")
-show_sheets_page
+show_sheets_page()
