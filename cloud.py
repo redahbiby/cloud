@@ -16,13 +16,14 @@ def show_sheets_page():
         st.dataframe(df)
     except Exception as e:
         st.error(f"Erreur lors du chargement des données : {e}")
-show_sheets_page()
-# Création d'un graphique matplotlib
-fig, ax = plt.subplots()
-ax.plot(df['Fonction'], df['Motif de départ'])  
-ax.set_title("motif de depart par fonction")
-ax.set_xlabel("Fonction")
-ax.set_ylabel("motif de depart")
 
-# Affichage du graphique dans Streamlit
-st.pyplot(fig)
+    # Création d'un graphique matplotlib
+    fig, ax = plt.subplots()
+    ax.plot(df['Fonction'], df['Motif de départ'])  
+    ax.set_title("motif de depart par fonction")
+    ax.set_xlabel("Fonction")
+    ax.set_ylabel("motif de depart")
+
+    # Affichage du graphique dans Streamlit
+    st.pyplot(fig)
+show_sheets_page()
