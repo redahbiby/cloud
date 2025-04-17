@@ -17,8 +17,9 @@ def show_sheets_page():
     except Exception as e:
         st.error(f"Erreur lors du chargement des données : {e}")
         # Graphique en barres
+# Graphique en barres
 fig = px.bar(df, x='Fonction', y='Motif de départ', title='depart users')
-st.plotly
+st.plotly_chart(fig)
 
 
 # Appel de la fonction
