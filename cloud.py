@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
 def show_sheets_page():
     st.title("Lecture de Google Sheets dans Streamlit")
@@ -16,10 +15,6 @@ def show_sheets_page():
         st.dataframe(df)
     except Exception as e:
         st.error(f"Erreur lors du chargement des données : {e}")
-        # Graphique en barres
-# Graphique en barres
-fig = px.bar(df, x='Fonction', y='Motif de départ', title='depart users')
-st.plotly_chart(fig)
 
 
 # Appel de la fonction
