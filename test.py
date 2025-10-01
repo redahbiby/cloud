@@ -63,4 +63,20 @@ objectif = st.selectbox(
 st.write(f"Votre objectif est : **{objectif}**")
 
 # 🔹 Niveau d’expérience
-niveau = st.radio("Quel est votre niveau actuel ?", ["Débutant", "Intermédi]()
+niveau = st.radio("Quel est votre niveau actuel ?", ["Débutant", "Intermédiaire", "Avancé"])
+st.write(f"Niveau choisi : **{niveau}**")
+
+# 🔹 Plan de suivi personnalisé
+if st.button("Générer un plan de base"):
+    if objectif == "Perdre du poids":
+        st.info("👉 Recommandation : 3 séances de cardio + 2 séances de musculation par semaine.")
+    elif objectif == "Prendre du muscle":
+        st.info("👉 Recommandation : 4 séances de musculation + alimentation riche en protéines.")
+    elif objectif == "Améliorer mon cardio":
+        st.info("👉 Recommandation : 4 séances de course/vélo/natation + 1 séance renfo.")
+    else:
+        st.info("👉 Recommandation : 3 séances variées (muscu + cardio + souplesse).")
+
+# Footer
+st.markdown("---")
+st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
