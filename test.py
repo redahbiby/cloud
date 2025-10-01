@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 from datetime import date
 import os
 
-# 🎨 Configuration de la page
-st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="wide")
+# 🎨 Configuration de la page (centered pour mobile)
+st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
 # -------------------------------
-# 🔹 CSS pour thème personnalisé
+# 🔹 CSS Responsive Mobile
 # -------------------------------
 st.markdown("""
     <style>
@@ -19,15 +19,28 @@ st.markdown("""
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        flex-wrap: wrap;
     }
     .header-container img {
-        width: 120px;
-        margin-right: 15px;
-        border-radius: 10px;
+        width: 80px;  /* plus petit pour mobile */
+        margin-right: 10px;
+        border-radius: 8px;
     }
     .header-container h1 {
         color: #222;
-        font-size: 42px;
+        font-size: 28px;  /* réduit pour petits écrans */
+    }
+    @media (max-width: 600px) {
+        .header-container {
+            flex-direction: column;
+            text-align: center;
+        }
+        .header-container img {
+            margin-bottom: 10px;
+        }
+        .header-container h1 {
+            font-size: 24px;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -46,9 +59,9 @@ st.markdown(
 )
 
 # -------------------------------
-# 🔹 Barre latérale navigation
+# 🔹 Menu navigation (Selectbox au lieu de sidebar pour mobile)
 # -------------------------------
-menu = st.sidebar.radio(
+menu = st.selectbox(
     "📌 Navigation",
     ["🏠 Accueil", "👤 Profil", "🎯 Objectifs", "📊 Suivi de progression", "ℹ️ À propos"]
 )
@@ -67,11 +80,10 @@ elif menu == "👤 Profil":
     st.header("👤 Informations personnelles")
     nom = st.text_input("Quel est votre nom ?")
     age = st.slider("Quel âge as-tu ?", 0, 100, 25)
-    taille = st.number_input("Quelle est ta taille (en cm) ?", min_value=100, max_value=250, step=1)
     genre = st.radio("Quel est votre genre ?", ["Homme", "Femme", "Autre"])
 
     if nom:
-        st.success(f"Enchanté, {nom} ! Vous avez {age} ans, mesurez {taille} cm et vous êtes {genre}.")
+        st.success(f"Enchanté, {nom} ! Vous avez {age} ans et vous êtes {genre}.")
 
 # -------------------------------
 # 🎯 Objectifs
@@ -89,85 +101,4 @@ elif menu == "🎯 Objectifs":
             st.info("👉 Recommandation : 3 séances de cardio + 2 séances de musculation par semaine.")
         elif objectif == "Prendre du muscle":
             st.info("👉 Recommandation : 4 séances de musculation + alimentation riche en protéines.")
-        elif objectif == "Améliorer mon cardio":
-            st.info("👉 Recommandation : 4 séances de course/vélo/natation + 1 séance renfo.")
-        else:
-            st.info("👉 Recommandation : 3 séances variées (muscu + cardio + souplesse).")
-
-# -------------------------------
-# 📊 Suivi de progression (Poids + IMC)
-# -------------------------------
-elif menu == "📊 Suivi de progression":
-    st.header("📊 Suivi de vos progrès")
-
-    # Fichier CSV pour sauvegarder
-    file_path = "progression.csv"
-
-    # Charger données si fichier existe
-    if os.path.exists(file_path):
-        df = pd.read_csv(file_path)
-    else:
-        df = pd.DataFrame(columns=["Date", "Poids (kg)", "IMC"])
-
-    # Taille pour calcul de l’IMC
-    taille_cm = st.number_input("Entrez votre taille (cm)", min_value=100, max_value=250, step=1, value=170)
-    taille_m = taille_cm / 100
-
-    # Entrée poids actuel
-    poids = st.number_input("Entrez votre poids actuel (kg)", min_value=30.0, max_value=200.0, step=0.1)
-
-    # Calcul IMC
-    if poids > 0 and taille_m > 0:
-        imc = round(poids / (taille_m ** 2), 2)
-
-        if imc < 18.5:
-            interpretation = "⚠️ Insuffisance pondérale"
-        elif imc < 25:
-            interpretation = "✅ Poids normal"
-        elif imc < 30:
-            interpretation = "⚠️ Surpoids"
-        else:
-            interpretation = "🚨 Obésité"
-
-        st.write(f"Votre IMC est **{imc}** → {interpretation}")
-
-    # Sauvegarder données
-    if st.button("Enregistrer mon poids et IMC"):
-        new_data = pd.DataFrame([[date.today(), poids, imc]], columns=["Date", "Poids (kg)", "IMC"])
-        df = pd.concat([df, new_data], ignore_index=True)
-        df.to_csv(file_path, index=False)
-        st.success("✅ Données enregistrées avec succès !")
-
-    # Afficher historique
-    if not df.empty:
-        st.subheader("📅 Historique")
-        st.dataframe(df)
-
-        # Graphique de progression poids
-        st.subheader("📈 Évolution du poids")
-        fig, ax = plt.subplots()
-        ax.plot(df["Date"], df["Poids (kg)"], marker="o", linestyle="-", color="blue", label="Poids (kg)")
-        ax.set_xlabel("Date")
-        ax.set_ylabel("Poids (kg)")
-        ax.legend()
-        st.pyplot(fig)
-
-        # Graphique de progression IMC
-        st.subheader("📈 Évolution de l’IMC")
-        fig2, ax2 = plt.subplots()
-        ax2.plot(df["Date"], df["IMC"], marker="o", linestyle="-", color="green", label="IMC")
-        ax2.axhline(18.5, color="orange", linestyle="--", label="Min Normal")
-        ax2.axhline(25, color="orange", linestyle="--", label="Max Normal")
-        ax2.set_xlabel("Date")
-        ax2.set_ylabel("IMC")
-        ax2.legend()
-        st.pyplot(fig2)
-
-# -------------------------------
-# ℹ️ À propos
-# -------------------------------
-elif menu == "ℹ️ À propos":
-    st.header("ℹ️ À propos")
-    st.write("Cette application a été développée avec **Streamlit** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.")
-    st.markdown("⚡ Développée par : **Fitness Goals Club 2025**")
-    st.markdown("---")
+        elif objec
