@@ -135,6 +135,7 @@ elif menu == "📊 Suivi de progression":
 # -------------------------------
 elif menu == "ℹ️ À propos":
     st.header("ℹ️ À propos")
-    st.write("Cette application a été développée avec **Streamlit** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.")
-    st.markdown("⚡ Développée par : **Fitness Goals Club 2025**")
+    st.write("Cette application a été développée avec **FITNESS GOALS CLUB** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.")
+    st.markdown("⚡ Développée par : **reda hbiby**")
     st.markdown("---")
+
