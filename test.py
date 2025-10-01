@@ -3,14 +3,34 @@ import streamlit as st
 # 🎨 Configuration de la page
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
-# 🔹 Logo (image depuis ton GitHub)
-st.image(
-    "https://raw.githubusercontent.com/redahbiby/cloud/main/332101475_859229345140051_4358309886044135612_n.jpg",
-    width=350
+# 🔹 Logo + Titre sur la même ligne (CSS/HTML)
+st.markdown(
+    f"""
+    <style>
+    .header-container {{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }}
+    .header-container img {{
+        width: 80px;
+        margin-right: 15px;
+        border-radius: 10px;
+    }}
+    .header-container h1 {{
+        color: #333;
+        font-size: 32px;
+    }}
+    </style>
+    <div class="header-container">
+        <img src="https://raw.githubusercontent.com/redahbiby/cloud/main/332101475_859229345140051_4358309886044135612_n.jpg">
+        <h1>💪 Fitness Goals Club</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
-# 🏋️‍♂️ Titre et description
-st.title("💪 Bienvenue au Fitness Goals Club")
+# 🏋️‍♂️ Sous-titre
 st.subheader("Votre salle de sport en ligne")
 st.write("Ici, vous pouvez suivre vos objectifs fitness et mieux connaître vos habitudes sportives.")
 
@@ -43,21 +63,4 @@ objectif = st.selectbox(
 st.write(f"Votre objectif est : **{objectif}**")
 
 # 🔹 Niveau d’expérience
-niveau = st.radio("Quel est votre niveau actuel ?", ["Débutant", "Intermédiaire", "Avancé"])
-st.write(f"Niveau choisi : **{niveau}**")
-
-# 🔹 Plan de suivi personnalisé
-if st.button("Générer un plan de base"):
-    if objectif == "Perdre du poids":
-        st.info("👉 Recommandation : 3 séances de cardio + 2 séances de musculation par semaine.")
-    elif objectif == "Prendre du muscle":
-        st.info("👉 Recommandation : 4 séances de musculation + alimentation riche en protéines.")
-    elif objectif == "Améliorer mon cardio":
-        st.info("👉 Recommandation : 4 séances de course/vélo/natation + 1 séance renfo.")
-    else:
-        st.info("👉 Recommandation : 3 séances variées (muscu + cardio + souplesse).")
-
-# Footer
-st.markdown("---")
-st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
-
+niveau = st.radio("Quel est votre niveau actuel ?", ["Débutant", "Intermédi]()
