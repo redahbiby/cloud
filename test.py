@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
 # 🔹 Ajouter un logo (par exemple depuis GitHub ou Unsplash)
-st.image("https://www.facebook.com/photo.php?fbid=126483633680197&set=pb.100089556833356.-2207520000&type=3.png",
+st.image("https://github.com/redahbiby/cloud/blob/main/332101475_859229345140051_4358309886044135612_n.jpg",
          width=150, caption="Fitness Goals Club")
 
 # 🏋️‍♂️ Titre et description
@@ -58,4 +58,5 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
 
