@@ -1,7 +1,7 @@
 import streamlit as st
 
 # 🎨 Configuration de la page
-st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
+st.set_page_config(page_title="Fitness Goals Club", layout="centered")
 
 # 🔹 Logo + Titre sur la même ligne (CSS/HTML)
 st.markdown(
@@ -19,7 +19,7 @@ st.markdown(
     }}
     .header-container h1 {{
         color: #333;
-        font-size: 32px;
+        font-size: 132px;
     }}
     </style>
     <div class="header-container">
@@ -80,4 +80,5 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
 
