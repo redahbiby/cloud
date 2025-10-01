@@ -13,7 +13,7 @@ st.markdown(
         justify-content: flex-start;
     }}
     .header-container img {{
-        width: 80px;
+        width: 200px;
         margin-right: 15px;
         border-radius: 10px;
     }}
@@ -80,3 +80,4 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
