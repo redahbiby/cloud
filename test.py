@@ -6,7 +6,7 @@ st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="ce
 # 🔹 Logo (image depuis ton GitHub)
 st.image(
     "https://raw.githubusercontent.com/redahbiby/cloud/main/332101475_859229345140051_4358309886044135612_n.jpg",
-    width=150
+    width=350
 )
 
 # 🏋️‍♂️ Titre et description
@@ -60,3 +60,4 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
