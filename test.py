@@ -24,7 +24,7 @@ st.markdown(
     </style>
     <div class="header-container">
         <img src="https://raw.githubusercontent.com/redahbiby/cloud/main/332101475_859229345140051_4358309886044135612_n.jpg">
-        <h1>💪 Fitness Goals Club</h1>
+        <h1> Fitness Goals Club</h1>
     </div>
     """,
     unsafe_allow_html=True
@@ -80,6 +80,7 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
 
 
 
