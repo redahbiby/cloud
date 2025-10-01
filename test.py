@@ -67,10 +67,11 @@ elif menu == "👤 Profil":
     st.header("👤 Informations personnelles")
     nom = st.text_input("Quel est votre nom ?")
     age = st.slider("Quel âge as-tu ?", 0, 100, 25)
+    taille = st.number_input("Quelle est ta taille (en cm) ?", min_value=100, max_value=250, step=1)
     genre = st.radio("Quel est votre genre ?", ["Homme", "Femme", "Autre"])
 
     if nom:
-        st.success(f"Enchanté, {nom} ! Vous avez {age} ans et vous êtes {genre}.")
+        st.success(f"Enchanté, {nom} ! Vous avez {age} ans, mesurez {taille} cm et vous êtes {genre}.")
 
 # -------------------------------
 # 🎯 Objectifs
@@ -94,7 +95,7 @@ elif menu == "🎯 Objectifs":
             st.info("👉 Recommandation : 3 séances variées (muscu + cardio + souplesse).")
 
 # -------------------------------
-# 📊 Suivi de progression
+# 📊 Suivi de progression (Poids + IMC)
 # -------------------------------
 elif menu == "📊 Suivi de progression":
     st.header("📊 Suivi de vos progrès")
@@ -106,36 +107,67 @@ elif menu == "📊 Suivi de progression":
     if os.path.exists(file_path):
         df = pd.read_csv(file_path)
     else:
-        df = pd.DataFrame(columns=["Date", "Poids (kg)"])
+        df = pd.DataFrame(columns=["Date", "Poids (kg)", "IMC"])
+
+    # Taille pour calcul de l’IMC
+    taille_cm = st.number_input("Entrez votre taille (cm)", min_value=100, max_value=250, step=1, value=170)
+    taille_m = taille_cm / 100
 
     # Entrée poids actuel
     poids = st.number_input("Entrez votre poids actuel (kg)", min_value=30.0, max_value=200.0, step=0.1)
-    if st.button("Enregistrer mon poids"):
-        new_data = pd.DataFrame([[date.today(), poids]], columns=["Date", "Poids (kg)"])
+
+    # Calcul IMC
+    if poids > 0 and taille_m > 0:
+        imc = round(poids / (taille_m ** 2), 2)
+
+        if imc < 18.5:
+            interpretation = "⚠️ Insuffisance pondérale"
+        elif imc < 25:
+            interpretation = "✅ Poids normal"
+        elif imc < 30:
+            interpretation = "⚠️ Surpoids"
+        else:
+            interpretation = "🚨 Obésité"
+
+        st.write(f"Votre IMC est **{imc}** → {interpretation}")
+
+    # Sauvegarder données
+    if st.button("Enregistrer mon poids et IMC"):
+        new_data = pd.DataFrame([[date.today(), poids, imc]], columns=["Date", "Poids (kg)", "IMC"])
         df = pd.concat([df, new_data], ignore_index=True)
         df.to_csv(file_path, index=False)
-        st.success("✅ Poids enregistré avec succès !")
+        st.success("✅ Données enregistrées avec succès !")
 
     # Afficher historique
     if not df.empty:
-        st.subheader("📅 Historique du poids")
+        st.subheader("📅 Historique")
         st.dataframe(df)
 
-        # Graphique de progression
+        # Graphique de progression poids
         st.subheader("📈 Évolution du poids")
         fig, ax = plt.subplots()
-        ax.plot(df["Date"], df["Poids (kg)"], marker="o", linestyle="-", color="blue")
+        ax.plot(df["Date"], df["Poids (kg)"], marker="o", linestyle="-", color="blue", label="Poids (kg)")
         ax.set_xlabel("Date")
         ax.set_ylabel("Poids (kg)")
-        ax.set_title("Progression du poids")
+        ax.legend()
         st.pyplot(fig)
+
+        # Graphique de progression IMC
+        st.subheader("📈 Évolution de l’IMC")
+        fig2, ax2 = plt.subplots()
+        ax2.plot(df["Date"], df["IMC"], marker="o", linestyle="-", color="green", label="IMC")
+        ax2.axhline(18.5, color="orange", linestyle="--", label="Min Normal")
+        ax2.axhline(25, color="orange", linestyle="--", label="Max Normal")
+        ax2.set_xlabel("Date")
+        ax2.set_ylabel("IMC")
+        ax2.legend()
+        st.pyplot(fig2)
 
 # -------------------------------
 # ℹ️ À propos
 # -------------------------------
 elif menu == "ℹ️ À propos":
     st.header("ℹ️ À propos")
-    st.write("Cette application a été développée avec **FITNESS GOALS CLUB** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.")
-    st.markdown("⚡ Développée par : **reda hbiby**")
+    st.write("Cette application a été développée avec **Streamlit** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.")
+    st.markdown("⚡ Développée par : **Fitness Goals Club 2025**")
     st.markdown("---")
-
