@@ -19,7 +19,7 @@ st.markdown(
     }}
     .header-container h1 {{
         color: #333;
-        font-size: 72px;
+        font-size: 48px;
     }}
     </style>
     <div class="header-container">
@@ -80,6 +80,7 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
+
 
 
 
