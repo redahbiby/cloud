@@ -3,6 +3,22 @@ import streamlit as st
 # 🎨 Configuration de la page
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
+# 🔹 Ajouter un arrière-plan (image hébergée en ligne)
+page_bg = """
+<style>
+[data-testid="stAppViewContainer"] {
+    background-image: url("https://images.unsplash.com/photo-1571019613914-85f342c1d4b1"); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+[data-testid="stHeader"] {
+    background: rgba(0,0,0,0);
+}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
+
 # 🏋️‍♂️ Titre et description
 st.title("💪 Bienvenue au Fitness Goals Club")
 st.subheader("Votre salle de sport en ligne")
