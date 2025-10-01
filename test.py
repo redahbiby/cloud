@@ -3,9 +3,11 @@ import streamlit as st
 # 🎨 Configuration de la page
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
-# 🔹 Ajouter un logo (par exemple depuis GitHub ou Unsplash)
-st.image("https://github.com/redahbiby/cloud/blob/main/332101475_859229345140051_4358309886044135612_n.jpg",
-         width=150, caption="Fitness Goals Club")
+# 🔹 Logo (image depuis ton GitHub)
+st.image(
+    "https://raw.githubusercontent.com/redahbiby/cloud/main/332101475_859229345140051_4358309886044135612_n.jpg",
+    width=150
+)
 
 # 🏋️‍♂️ Titre et description
 st.title("💪 Bienvenue au Fitness Goals Club")
@@ -44,7 +46,7 @@ st.write(f"Votre objectif est : **{objectif}**")
 niveau = st.radio("Quel est votre niveau actuel ?", ["Débutant", "Intermédiaire", "Avancé"])
 st.write(f"Niveau choisi : **{niveau}**")
 
-# 🔹 Plan de suivi (exemple simple)
+# 🔹 Plan de suivi personnalisé
 if st.button("Générer un plan de base"):
     if objectif == "Perdre du poids":
         st.info("👉 Recommandation : 3 séances de cardio + 2 séances de musculation par semaine.")
@@ -58,5 +60,3 @@ if st.button("Générer un plan de base"):
 # Footer
 st.markdown("---")
 st.caption("⚡ Application développée avec Streamlit | Fitness Goals Club 2025")
-
-
