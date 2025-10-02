@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import date
 import os
 
-# 🎨 Configuration de la page
+# 🎨 Configuration de la page (centered pour mobile)
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
 # -------------------------------
@@ -59,7 +59,7 @@ st.markdown(
 )
 
 # -------------------------------
-# 🔹 Menu navigation avec boutons
+# 🔹 Menu horizontal avec boutons
 # -------------------------------
 col1, col2, col3, col4, col5 = st.columns(5)
 menu_selection = None
@@ -75,12 +75,12 @@ if col4.button("📊 Suivi"):
 if col5.button("ℹ️ À propos"):
     menu_selection = "A propos"
 
-# valeur par défaut
+# Définir une valeur par défaut si aucun bouton cliqué encore
 if menu_selection is None:
     menu_selection = "Accueil"
 
 # -------------------------------
-# 🏠 Accueil
+# 🏠 Page Accueil
 # -------------------------------
 if menu_selection == "Accueil":
     st.subheader("Bienvenue dans votre salle de sport en ligne 🏋️‍♂️")
@@ -120,7 +120,7 @@ elif menu_selection == "Objectifs":
             st.info("👉 Recommandation : 3 séances variées (muscu + cardio + souplesse).")
 
 # -------------------------------
-# 📊 Suivi progression
+# 📊 Suivi de progression
 # -------------------------------
 elif menu_selection == "Suivi":
     st.header("📊 Suivi de vos progrès")
