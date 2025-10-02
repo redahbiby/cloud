@@ -100,6 +100,12 @@ elif menu_selection == "Suivi":
     if not df.empty:
         st.subheader("📅 Historique du poids")
         st.dataframe(df)
+        st.subheader("📈 Évolution du poids")
+        fig, ax = plt.subplots(figsize=(4,3))
+        ax.plot(df["Date"], df["Poids (kg)"], marker="o", linestyle="-", color="blue")
+        ax.set_xlabel("Date")
+        ax.set_ylabel("Poids (kg)")
+        st.pyplot(fig)
 
 
 # -------------------------------
@@ -110,4 +116,5 @@ elif menu_selection == "A propos":
     st.write("Cette application a été développée avec **FITNESS GOALS CLUB** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.") 
     st.markdown("⚡ Développée par : **REDA HBIBY**") 
     st.markdown("---")
+
 
