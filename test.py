@@ -7,47 +7,6 @@ import os
 # 🎨 Configuration de la page (centered pour mobile)
 st.set_page_config(page_title="Fitness Goals Club", page_icon="💪", layout="centered")
 
-# -------------------------------
-# 🔹 CSS Responsive Mobile
-# -------------------------------
-st.markdown("""
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;
-    }
-    .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-    .header-container img {
-        width: 80px;
-        margin-right: 10px;
-        border-radius: 8px;
-    }
-    .header-container h1 {
-        color: #222;
-        font-size: 28px;
-    }
-    .menu-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
-    }
-    .menu-buttons button {
-        margin: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# -------------------------------
-# 🔹 En-tête avec logo + titre
-# -------------------------------
 st.markdown(
     f"""
     <div class="header-container">
@@ -157,3 +116,4 @@ elif menu_selection == "A propos":
     st.write("Cette application a été développée avec **FITNESS GOALS CLUB** pour aider les passionnés de fitness à suivre leurs progrès et rester motivés.") 
     st.markdown("⚡ Développée par : **REDA HBIBY**") 
     st.markdown("---")
+
