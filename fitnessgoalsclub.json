@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fitnessgoalsclub",
+  "private_key_id": "efa372a72cb454aae969054c0e03aaac9649c552",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDojykGrLg9H/XS\n7Y3TMSQSf2aHk1lnHCVXQk0rhHyLeuaaJM5JehymGhrDOx6vJEwHDIOkbfeF4IB3\noecW9aqniTMUKmM9FSg43lUzjtd2sqvKzc6fNxthHNg+0FWh+mSm8ad7p/2xkdOZ\neV4a+bYrqJCNee2m28fZcv9gND8SD9tjCMAFqrFn0Tv02zJoYF36hSdIzMM2XQjL\ncDpZRm1rOO0IqZyFC8Xsu/oCnywy76bUjYaGdiMi4oW6TEgZrWcQw6N5lYVgrPBL\nXtdv5Zk+HKLzMHPDA0rpQYI7msfzvVwaSaSe0him52zDkcTgmOwMUKU7YEaxgE/9\nMZP4jMj5AgMBAAECggEAYnLEQ9qXTez7NDUzPk3FvvzmywryJGeyWQusvnjh/mvj\nNirRlyJWAWz4mmArH6qGcs915QRWbfq5d6t2t+38tdqrYGSHSULtGZHpUJ+uD8YY\nWoygZR8/fG9pDcJFFgJ5XIDdTUgy6dpZUNWjpFjEqRu9Qd71X5cXtbJscG39qydz\nmpeA29JTnU805qny3FvkDZ3vtOWy3YQlAwyIucCxGRO9Le0JqCwNwoH8IFa76u0v\nGUqoRT3oS97uw/HLPuLpzMza59O9K3uuFl5z5MbQK3sklibFgNcX5LPAnHRYhU8H\nlO4baczsSgoRgHpRaZcDgPS8h6BND5D4m32tgB+jTwKBgQD8sMrJZEa5Td51yZMg\nrPOgKMiIYjPjiGF0viKnd1Exafwsk1V62jjDRXIKmvir+bEda2ewqF3T7iQbiNTy\neyiNX2IkUbaMbFzsa5DihYprUwwx51RnmFWkyq4xpL6Yoe/qgzD+1ADH9IaLcU/9\nvWvQU5vpBYxvHCfwAdiOUrG2mwKBgQDrmt9pK+3EVHFAf2sQW+jmwara4VyK7JFA\nOoV63s68CEeBAmBgICJ7Wzmm94ea73c9IytnUK8BkHGGv548QGAEfM+dS5pLBnkz\nb7SKxB7eokCtWDZ/X8yrUioXjrn/Yu7E+U+TORYfffo4ciTSx1KnVjXtj0GcANzI\nHitVLjit+wKBgHY8Hta25eTEy8efZwlOA7y3+ITgNllLshYW9U4YpVQSvFz7H28Z\ndp/f+al+s8Z8UeRrIhxl22lTr292yfUfrWzg6aIG3fy8o4o4FpX3WDo5pKYhELxc\nag5ui61M4aW3d/PqKN3Dww3Mm7vZbE1U+YKD7JrO7tP6f7Fsm7CUfvTrAoGBAJhR\n3lJeZi/h7/4k4pEG+sIFP3KW9H+UhiuiKh3P4pRKPgA4Cxraa7CYv+MkcPVIECzk\nifEXhq1aNytIwwJtFCaSkp88+5m5q64HcA+uz85b07i+KS2cP/QbAL+ONM3ZpkiO\nblXeOGFPzu+jTA9BcjxhTigxz9cN768pYhaF9Xr1AoGAW8ew06CD5KrSHJCW40yC\nAuscbayooSHuXHVqdVnqVlEJ6/i/N1Ng/mvfBA56aaFI3kjHsy4Bj4pzXFexsrFn\n7GFI2AUbVWJUxaTr31yq2B+2z10YMhQxDoWCiA20/kMnzeb9gQfP5ZzdD54oLeAF\nc9tL1li+i9KBRdE2nx2jtJQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "fitnessgoalsclub@fitnessgoalsclub.iam.gserviceaccount.com",
+  "client_id": "110816644162798783262",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fitnessgoalsclub%40fitnessgoalsclub.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
