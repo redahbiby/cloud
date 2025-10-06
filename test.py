@@ -126,3 +126,4 @@ elif menu_selection == "A propos":
     st.header("ℹ️ À propos")
     st.write("Application développée avec **FITNESS GOALS CLUB**. Chaque membre a son suivi personnel dans Google Sheets 📊.") 
     st.markdown("⚡ Développée par : **REDA HBIBY**") 
+
